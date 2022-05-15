@@ -2,6 +2,7 @@ package pageObject;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -23,26 +24,31 @@ public class AccountPage {
     private SelenideElement logoButton;
 
     //Нажать на кнопку "Выход"
+    @Step("Click logout button")
     public void clickTheLogOutButton() {
         logOutButton.click();
     }
 
     //Нажать на кнопку "Конструктор"
+    @Step("Click constructor button")
     public void clickTheConstructorButton() {
         constructorButton.click();
     }
 
     //Нажать на логотип бургер
+    @Step("Click burger logo")
     public void clickTheLogo() {
         logoButton.click();
     }
 
     //Ждем загрузку страницы
+    @Step("Wait loading page")
     public void waitAfterTransition() {
         logOutButton.shouldBe(Condition.visible);
     }
 
     //Ожидание после выхода
+    @Step("Wait after logout")
     public void waitAfterLogOut() {
         logOutButton.shouldBe(Condition.disappear);
     }

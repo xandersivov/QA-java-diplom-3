@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import pageObject.AccountPage;
 import pageObject.LoginPage;
 import pageObject.OrderPage;
@@ -50,8 +51,8 @@ public class AccountActionTest {
         Selenide.clearBrowserLocalStorage();
     }
 
-    //Переход в личный кабинет с главной страницы
     @Test
+    @DisplayName("Тест на Переход в личный кабинет с главной страницы")
     public void checkTransitionToAccountPageTest() {
         OrderPage main = page(OrderPage.class);
         main.clickPersonalAccountButton();
@@ -60,8 +61,8 @@ public class AccountActionTest {
         assertEquals(url(), ACCOUNT_PAGE_URL);
     }
 
-    //Переход из личного кабинета в конструктор по нажатию на кнопку "Конструктор"
     @Test
+    @DisplayName("Тест на Переход из личного кабинета в конструктор по нажатию на кнопку \"Конструктор\"")
     public void checkTransitionAfterClickConstructButtonTest() {
         OrderPage main = page(OrderPage.class);
         main.clickPersonalAccountButton();
@@ -71,8 +72,8 @@ public class AccountActionTest {
         assertEquals(url(), MAIN_PAGE_URL);
     }
 
-    //Переход из личного кабинета в конструктор по нажатию на лого бургера
     @Test
+    @DisplayName("Тест на Переход из личного кабинета в конструктор по нажатию на лого бургера")
     public void checkTransitionAfterClickLogoTest() {
         OrderPage main = page(OrderPage.class);
         main.clickPersonalAccountButton();
@@ -82,8 +83,8 @@ public class AccountActionTest {
         assertEquals(url(), MAIN_PAGE_URL);
     }
 
-    //Переход из личного кабинета на страницу логина после выхода
     @Test
+    @DisplayName("Тест на Переход из личного кабинета на страницу логина после выхода")
     public void checkTransitionAfterLogOutTest() {
         OrderPage main = page(OrderPage.class);
         main.clickPersonalAccountButton();

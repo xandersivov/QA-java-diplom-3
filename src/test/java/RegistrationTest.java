@@ -1,19 +1,20 @@
-import pageObject.RegistrationPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import pageObject.RegistrationPage;
 
-import static pageObject.LoginPage.LOGIN_PAGE_URL;
-import static pageObject.RegistrationPage.REGISTER_PAGE_URL;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static pageObject.LoginPage.LOGIN_PAGE_URL;
+import static pageObject.RegistrationPage.REGISTER_PAGE_URL;
 
 @RunWith(Parameterized.class)
 public class RegistrationTest {
@@ -44,8 +45,8 @@ public class RegistrationTest {
         Selenide.clearBrowserLocalStorage();
     }
 
-    //При успешной регистрации переход на страницу входа
     @Test
+    @DisplayName("Тест на проверку при успешной регистрации переход на страницу входа")
     public void checkCorrectRegistrationTest() {
         RegistrationPage registrationPage = open(REGISTER_PAGE_URL, RegistrationPage.class);
         User user = new User();
@@ -54,8 +55,8 @@ public class RegistrationTest {
         assertEquals(url(), LOGIN_PAGE_URL);
     }
 
-    //Регистрация с коротким паролем, отображение ошибки
     @Test
+    @DisplayName("Тест на Регистрацию с коротким паролем и отображение ошибки")
     public void checkRegistrationIncorrectPasswordTest() {
         RegistrationPage registrationPage = open(REGISTER_PAGE_URL, RegistrationPage.class);
         User user = new User();

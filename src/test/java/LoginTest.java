@@ -1,20 +1,21 @@
-import pageObject.LoginPage;
-import pageObject.OrderPage;
-import pageObject.RegistrationPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import pageObject.LoginPage;
+import pageObject.OrderPage;
+import pageObject.RegistrationPage;
 
-import static pageObject.LoginPage.FORGOT_PASSWORD_URL;
-import static pageObject.OrderPage.MAIN_PAGE_URL;
-import static pageObject.RegistrationPage.REGISTER_PAGE_URL;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.Assert.assertEquals;
+import static pageObject.LoginPage.FORGOT_PASSWORD_URL;
+import static pageObject.OrderPage.MAIN_PAGE_URL;
+import static pageObject.RegistrationPage.REGISTER_PAGE_URL;
 
 @RunWith(Parameterized.class)
 public class LoginTest {
@@ -45,8 +46,8 @@ public class LoginTest {
         Selenide.clearBrowserLocalStorage();
     }
 
-    //Корректный вход с главной страницы через кнопку "Войти в аккаунт"
     @Test
+    @DisplayName("Тест на корректный вход с главной страницы через кнопку Войти в аккаунт")
     public void checkLoginMainPageEntryButtonTest() {
         OrderPage main = open(MAIN_PAGE_URL, OrderPage.class);
         main.clickAccountEntryButton();
@@ -55,8 +56,8 @@ public class LoginTest {
         assertEquals(url(), MAIN_PAGE_URL);
     }
 
-    //Корректный вход с главной страницы через кнопку "Личный кабинет"
     @Test
+    @DisplayName("Тест на Корректный вход с главной страницы через кнопку Личный кабинет")
     public void checkLoginMainPagePersonalAccountButtonTest() {
         OrderPage main = open(MAIN_PAGE_URL, OrderPage.class);
         main.clickPersonalAccountButton();
@@ -65,8 +66,8 @@ public class LoginTest {
         assertEquals(url(), MAIN_PAGE_URL);
     }
 
-    //Корректный вход со страницы регистрации через кнопку "Войти"
     @Test
+    @DisplayName("Тест на Корректный вход со страницы регистрации через кнопку Войти")
     public void checkLoginRegistrationPagePersonalAccountButtonTest() {
         RegistrationPage register = open(REGISTER_PAGE_URL, RegistrationPage.class);
         register.clickTheEntryButton();
@@ -75,8 +76,8 @@ public class LoginTest {
         assertEquals(url(), MAIN_PAGE_URL);
     }
 
-    //Переход со страницы восстановления пароля через кнопку "Войти"
     @Test
+    @DisplayName("Тест на Переход со страницы восстановления пароля через кнопку Войти")
     public void checkLoginForgotPasswordPageEnterButtonTest() {
         LoginPage forgotPasswordPage = open(FORGOT_PASSWORD_URL, LoginPage.class);
         forgotPasswordPage.clickTheEnterButtonInForgot();

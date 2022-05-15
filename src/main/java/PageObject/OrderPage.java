@@ -1,6 +1,7 @@
 package pageObject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -59,16 +60,19 @@ public class OrderPage {
 
 
     //Нажать на кнопку "Войти в аккаунт"
+    @Step("Click account enter button")
     public void clickAccountEntryButton() {
         accountEntryButton.click();
     }
 
     //Нажать на кнопку "Личный кабинет"
+    @Step("Click personal account button")
     public void clickPersonalAccountButton() {
         personalAccountButton.click();
     }
 
     //Нажать на кнопку "Начинки", переместить элемент начинок в корзину и проверить
+    @Step("Click filling button and check sign")
     public boolean clickFillingButtonAndCheckTheSign() {
         fillingsButton.click();
         fillingForDrop.dragAndDropTo(orderBasket);
@@ -76,6 +80,7 @@ public class OrderPage {
     }
 
     //Листаем список вниз и жмем на кнопку "Соусы", перемещаем элемент соусов в корзину, проверить
+    @Step("Click sauces button and check sign")
     public boolean clickSaucesButtonAndCheckTheSign() {
         lastIngredient.scrollIntoView(true);
         saucesButton.click();
@@ -84,6 +89,7 @@ public class OrderPage {
     }
 
     //Листаем список вниз и жмем на кнопку "Булки", перемещаем булок в корзину, проверить
+    @Step("Click buns button and check sign")
     public boolean clickBunsButtonCheckTheSign() {
         lastIngredient.scrollIntoView(true);
         bunsButton.click();

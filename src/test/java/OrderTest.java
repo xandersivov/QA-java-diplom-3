@@ -1,4 +1,4 @@
-import PageObject.OrderPage;
+import pageObject.OrderPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.After;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static PageObject.OrderPage.MAIN_PAGE_URL;
+import static pageObject.OrderPage.MAIN_PAGE_URL;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertTrue;
@@ -25,7 +25,7 @@ public class OrderTest {
     public static Object[][] browserForTest() {
         return new Object[][]{
                 {"Chrome"},
-                {"Edge"}
+                //{"Edge"}
         };
     }
 

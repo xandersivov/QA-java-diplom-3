@@ -1,6 +1,6 @@
-import PageObject.AccountPage;
-import PageObject.LoginPage;
-import PageObject.OrderPage;
+import pageObject.AccountPage;
+import pageObject.LoginPage;
+import pageObject.OrderPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.After;
@@ -9,9 +9,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static PageObject.AccountPage.ACCOUNT_PAGE_URL;
-import static PageObject.LoginPage.LOGIN_PAGE_URL;
-import static PageObject.OrderPage.MAIN_PAGE_URL;
+import static pageObject.AccountPage.ACCOUNT_PAGE_URL;
+import static pageObject.LoginPage.LOGIN_PAGE_URL;
+import static pageObject.OrderPage.MAIN_PAGE_URL;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.Assert.assertEquals;
@@ -29,7 +29,7 @@ public class AccountActionTest {
     public static Object[][] browserForTest() {
         return new Object[][]{
                 {"Chrome"},
-                {"Edge"}
+                //{"Edge"}
         };
     }
 

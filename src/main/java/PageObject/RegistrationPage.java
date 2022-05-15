@@ -1,7 +1,6 @@
-package PageObject;
+package pageObject;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -10,9 +9,15 @@ public class RegistrationPage {
 
     //Урл страницы регистрации
     public static final String REGISTER_PAGE_URL = "https://stellarburgers.nomoreparties.site/register";
-    //Поля: имя, почта, пароль
-    @FindBy(how = How.XPATH, using = ".//input[@class='text input__textfield text_type_main-default']")
-    public ElementsCollection nameEmailPasswordFields;
+    //Поля: имя
+    @FindBy(how = How.XPATH, using = ".//label[text() = 'Имя']/../input")
+    private SelenideElement nameField;
+    //Поля: почта
+    @FindBy(how = How.XPATH, using = ".//label[text() = 'Email']/../input")
+    private SelenideElement emailField;
+    //Поля: пароль
+    @FindBy(how = How.XPATH, using = ".//label[text() = 'Пароль']/../input")
+    private SelenideElement passwordField;
     //Кнопка "Зарегистрироваться"
     @FindBy(how = How.XPATH, using = ".//button[text()='Зарегистрироваться']")
     private SelenideElement registerButton;
@@ -25,17 +30,17 @@ public class RegistrationPage {
 
     //Ввод имени
     public void setName(String name) {
-        nameEmailPasswordFields.get(0).setValue(name);
+        nameField.setValue(name);
     }
 
     //Ввод почты
     public void setEmail(String email) {
-        nameEmailPasswordFields.get(1).setValue(email);
+        emailField.setValue(email);
     }
 
     //Ввод пароля
     public void setPassword(String password) {
-        nameEmailPasswordFields.get(2).setValue(password);
+        passwordField.setValue(password);
     }
 
     //Нажатие на кнопку регистрации
@@ -64,5 +69,4 @@ public class RegistrationPage {
     public void clickTheEntryButton() {
         enterButton.scrollTo().click();
     }
-
 }

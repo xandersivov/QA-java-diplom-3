@@ -1,4 +1,4 @@
-import PageObject.RegistrationPage;
+import pageObject.RegistrationPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.After;
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static PageObject.LoginPage.LOGIN_PAGE_URL;
-import static PageObject.RegistrationPage.REGISTER_PAGE_URL;
+import static pageObject.LoginPage.LOGIN_PAGE_URL;
+import static pageObject.RegistrationPage.REGISTER_PAGE_URL;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -28,7 +28,7 @@ public class RegistrationTest {
     public static Object[][] browserForTest() {
         return new Object[][]{
                 {"Chrome"},
-                {"Edge"}
+                //{"Edge"}
         };
     }
 

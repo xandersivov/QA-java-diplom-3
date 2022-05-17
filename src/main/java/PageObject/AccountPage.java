@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 
 public class AccountPage {
 
-    //Урл личного кабинета
+    //УРЛ личного кабинета
     public static final String ACCOUNT_PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
     //Кнопка "История заказов" - как уникальный локатор для верефикации личного кабинета
     @FindBy(how = How.XPATH, using = ".//a[text()='История заказов']")
